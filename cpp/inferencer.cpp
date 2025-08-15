@@ -274,12 +274,19 @@ void Inferencer::Nms(std::vector<cv::RotatedRect> & rotated_rects, std::vector<c
 
 	std::vector<int> remain_ids;
 	cv::dnn::NMSBoxes(rotated_rects_agnostic, confidences, modelScoreThreshold_, modelNMSThreshold_, remain_ids);
+	int img_width = image_.cols / scale_;
 
 	remain_rotated_objects_.clear();
 	for (int i=0;i< remain_ids.size();i++)
 	{
+
 		int id = remain_ids[i];
 		RotatedObj rotated_obj = rotated_objects_[id];
+		if(rotated_obj.rotated_rect.center.x < 1.0/4.0 * img_width || rotated_obj.rotated_rect.center.x > 3.0/4.0 * img_width)
+		{
+			// std::cout<<rotated_obj.rotated_rect.center.x<<";"<<rotated_obj.rotated_rect.center.y<<";"<<img_width<<std::endl;
+			continue;
+		}
 		remain_rotated_objects_.push_back(rotated_obj);
 
 	}

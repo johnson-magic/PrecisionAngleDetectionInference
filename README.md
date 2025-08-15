@@ -11,9 +11,8 @@
     - [一致性测试](#一致性测试)
 ## 以可执行文件的方式运行
 * 百度网盘链接
-链接: https://pan.baidu.com/s/1yMs1CQQFVkHqmbElamY3jQ
-提取码: th7y
-
+链接: https://pan.baidu.com/s/1x3SUV20z9mPBk_j4Bvj_lw
+提取码: 1234
 ## 以python的方式运行
 ### 方式1: 傻瓜式安装、运行
 * 双击*click_me_to_install.bat*安装程序
